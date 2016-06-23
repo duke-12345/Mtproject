@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/lib/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			ul{
+				width: 300px;
+			}
+			li{
+				width: 300px;
+				height: 30px;
+				
+			}
+			a{
+				/*display: block;*/
+				width: 300px;
+				height: 30px;
+				line-height: 30px;
+			}
+			#box{
+				display: block;
+				width: 300px;
+				height: 20px;
+				position: fixed;
+				line-height: 20px;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#" title="治疗H7N9禽流感">治疗H7N9禽流感</a></li>
+			<li><a href="#" title="从乞丐的八卦故事">从乞丐的八卦故事</a></li>
+			<li><a href="#" title="韩国总统表示将与朝鲜对话">韩国总统表示将与朝鲜对话</a></li>
+			<li><a href="#" title="习近平检阅海军驻三亚部队">习近平检阅海军驻三亚部队</a></li>
+			<li><a href="#" title="禽流感高危">禽流感高危</a></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("ul>li>a").bind("mouseover",function(){
+			
+				$("<div></div>").text(this.title).attr("id","box").appendTo($("body"));
+				this.title="";
+			})
+			$("ul>li>a").bind("mouseout",function(){
+
+				this.title=$("#box").text();
+				$("#box").remove();
+				
+			})
+			$("ul>li>a").bind("mousemove",function(e){
+				$("#box").css({"left":e.pageX+20+"px","top":e.pageY+0+"px"});
+			})
+		})
+	</script>
+</html>
