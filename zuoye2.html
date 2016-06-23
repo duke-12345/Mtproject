@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/lib/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				margin: 0 auto;
+			}
+			
+			div {
+				width: 300px;
+				margin-bottom: 10px;
+			}
+			
+			input {
+				width: 300px;
+				height: 20px;
+				margin: 0 auto;
+			}
+			
+			button {
+				width: 100px;
+				height: 20px;
+			}
+			
+			#showDiv {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="">
+			属性名：<input type="text" value="" /><br /><br />
+			 属性值：<input type="text" /><br /><br />
+			<button id="ensure">确定</button>
+			<button id="reset">重置</button>
+		</div>
+		<div id="showDiv">
+			我是小可爱，哈哈哈哈哈哈哈哈！
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			
+			$("#ensure").bind("click",function(){
+				var val1=$("input:eq(0)").val();
+
+				var val2=$("input:eq(1)").val();
+				$("#showDiv").css(val1,val2);
+			})
+			$("#reset").bind("click",function(){
+				$("#showDiv").remove()
+				$("<div id='showDiv'>我是小可爱，哈哈哈哈哈哈哈哈！</div>").appendTo("body")
+				
+			})
+		})
+			
+		
+	</script>
+</html>
